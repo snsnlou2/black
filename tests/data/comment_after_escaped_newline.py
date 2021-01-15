@@ -1,18 +1,13 @@
-def bob(): \
-         # pylint: disable=W9016
+
+
+def bob():
     pass
 
-
-def bobtwo(): \
-    \
-  # some comment here
+def bobtwo():
     pass
 
-# output
-
-def bob():  # pylint: disable=W9016
+def bob():
     pass
 
-
-def bobtwo():  # some comment here
+def bobtwo():
     pass

@@ -9,5 +9,5 @@ chmod 600 root_key
 ssh-keyscan $serverIp >> ~/.ssh/known_hosts
 ssh-add root_key
 zip -r mypy_test_cache.zip mypy_test_cache/
-yes | scp -i root_key ./mypy_test_cache.zip root@$serverIp:~/cache/psf---black.zip
-yes | scp -i root_key ./mypy_test_report.txt root@$serverIp:~/report/psf---black.txt
+yes | scp -i root_key ./mypy_test_cache.zip root@$serverIp:~/cache/psf---black--unannotated.zip
+yes | scp -i root_key ./mypy_test_report.txt root@$serverIp:~/report/psf---black--unannotated.txt
