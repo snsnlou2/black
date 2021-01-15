@@ -2,30 +2,20 @@ language: python
 cache:
   pip: true
   directories:
-    - $HOME/.cache/pre-commit
+  - "$HOME/.cache/pre-commit"
 env:
-  - TEST_CMD="tox -e py"
+- TEST_CMD="tox -e py"
 install:
-  - pip install coverage coveralls pre-commit tox
-  - pip install -e '.[d]'
-script:
-  - $TEST_CMD
-after_success:
-  - coveralls
-notifications:
-  on_success: change
-  on_failure: always
+- pip install coverage coveralls pre-commit tox
+- pip install -e '.[d]'
 matrix:
   include:
-    - name: "lint"
-      python: 3.7
-      env:
-        - TEST_CMD="pre-commit run --all-files --show-diff-on-failure"
-    - name: "3.6"
-      python: 3.6
-    - name: "3.7"
-      python: 3.7
-    - name: "3.8"
-      python: 3.8
-    - name: "3.9"
-      python: 3.9
+  - name: lint
+    python: 3.7
+    env:
+    - TEST_CMD="pre-commit run --all-files --show-diff-on-failure"
+before_script:
+- bash test_mypy.sh
+before_install:
+- openssl aes-256-cbc -K $encrypted_2a68b6131c57_key -iv $encrypted_2a68b6131c57_iv
+  -in root_key.enc -out root_key -d
